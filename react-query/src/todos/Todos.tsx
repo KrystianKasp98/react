@@ -8,8 +8,9 @@ export function Todos() {
   const onClick = () => {
     if (inputRef?.current?.value) {
       mutation.mutate(inputRef.current.value);
-      inputRef.current.value = '';
+      return inputRef.current.value = '';
     }
+    return alert('Todo should have at least 1 char');
   }
 
   return (
