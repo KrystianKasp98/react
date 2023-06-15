@@ -1,19 +1,10 @@
-import { useMutation, useQuery } from "react-query";
+import { useQuery } from "react-query";
 
-import { getTodos, postTodo, } from "../api/todos";
-import { queryClient } from "../providers/QueryProvider";
+import { getTodos } from "../api/todos";
 
 export const useTodos = () => {
-  const query = useQuery('todos', getTodos);
-
-  const mutation = useMutation(postTodo, {
-    onSuccess: () => {
-      queryClient.invalidateQueries('todos');
-    }
+  return useQuery({
+    queryKey: ['useTodos'],
+    queryFn: getTodos
   });
-
-  return {
-    query,
-    mutation
-  }
 }

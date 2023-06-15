@@ -19,13 +19,13 @@ export function getTodos(): Promise<Todo[]> {
   });
 }
 
-export function postTodo(text: string): Promise<unknown> {
+export function postTodo({id, text}: Todo): Promise<unknown> {
   return new Promise((resolve, reject) => {
     if (!text.length) {
       reject('Text should have at least 1 char');
     }
     setTimeout(() => {
-      todos.push({id: new Date().getTime(), text});
+      todos.push({id, text});
       resolve(1);
     }, 1500);
   });
