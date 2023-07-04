@@ -12,7 +12,7 @@ function App() {
   // first just pass value it's going to run every time when it's re-rendered
   const [count, setCount] = useState(countInitial());
 
-  // second way, pass callback function, it's going to run only first time(usefull for hard calculations of state)
+  // second way, pass callback function, it's going to run only first time(useful for hard calculations of state)
   // const [count, setCount] = useState(() => {
   //   console.log('run complex function');
 
